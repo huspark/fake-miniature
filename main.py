@@ -23,12 +23,11 @@ def process_arg():
 	parser = argparse.ArgumentParser(description = "This program manipulates creates a miniature scene of an input image.")
 	parser.add_argument('-f', '--filename', type = str, required = True,  help = 'the input file name')
 	parser.add_argument('-s', '--filter_size', type = int, required = False,  help = 'the vertical size of each Gaussian filter in pixels')
-	parser.add_argument('-r', '--filter_radius', default = 1.05, type = float, required = False,  help = 'the sigma value for the first Gaussian blur filter')
+	parser.add_argument('-r', '--filter_radius', type = float, required = False,  help = 'the sigma value for the first Gaussian blur filter')
 	parser.add_argument('-b', '--brighten_factor', default = 1.1, type = float, required = False,  help = 'the constant for a brightening effect')
 	parser.add_argument('-c', '--saturate_factor', default = 1.5, type = float, required = False,  help = 'the constant for a saturation effect')
 
 	args = parser.parse_args()
-	print(type(args))
 
 	return args
 
@@ -45,9 +44,17 @@ if __name__ == '__main__':
 
 	# If filter size is not specified, use (image height / 20)
 	if args.filter_size == None:
-		filter_size = int(img.shape[0] / 20)
-	else:
-		filter_size = args.filter_size
+		args.filter_size = img.shape[0] // 20
+
+	# If filter_radius is not specified, use 1 + img.shape[0] ** 2 * 0.0000001
+	if args.filter_radius == None:
+		args.filter_radius = 1 + img.shape[0] ** 2 * 0.0000001
+
+	# Print out the values of the parameters being used
+	print('filter_size =', args.filter_size)
+	print('filter_radius =', args.filter_radius)
+	print('brighten_factor =', args.brighten_factor)
+	print('saturate_factor =', args.saturate_factor)
 
 	# Take a focus point from the user
 	focus_point = get_point(img)
@@ -58,7 +65,7 @@ if __name__ == '__main__':
 
 	# Apply blurs to the enhanced image
 	img = img.astype(np.float64)
-	out = smoothGaussian(img, y = int(focus_point[1]), filter_size = filter_size, sigma = args.filter_radius)
+	out = smooth_gaussian(img, y = int(focus_point[1]), filter_size = args.filter_size, sigma = args.filter_radius)
 	out = out.astype(dtype = np.uint8)
 
 	# Save and display the output image
