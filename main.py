@@ -10,7 +10,7 @@ from enhance import *
 from process import *
 
 
-def processArg():
+def process_arg():
 	'''
 	Process the user input.
 
@@ -35,7 +35,7 @@ def processArg():
 
 if __name__ == '__main__':
 	# Process arguments
-	args = processArg()
+	args = process_arg()
 
 	# Check if the specified file exists
 	try:
