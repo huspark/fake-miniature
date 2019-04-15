@@ -11,6 +11,15 @@ from process import *
 
 
 def processArg():
+	'''
+	Process the user input.
+
+	Parameters:
+		None
+
+	Returns:
+		args: argparse.Namespace()
+	'''
 	parser = argparse.ArgumentParser(description = "This program manipulates creates a miniature scene of an input image.")
 	parser.add_argument('-f', '--filename', type = str, required = True,  help = 'the input file name')
 	parser.add_argument('-s', '--filter_size', type = int, required = False,  help = 'the vertical size of each Gaussian filter in pixels')
@@ -18,15 +27,14 @@ def processArg():
 	parser.add_argument('-b', '--brighten_factor', default = 1.1, type = float, required = False,  help = 'the constant for a brightening effect')
 	parser.add_argument('-c', '--saturate_factor', default = 1.5, type = float, required = False,  help = 'the constant for a saturation effect')
 
-	return parser.parse_args()
+	args = parser.parse_args()
+	print(type(args))
 
-
-def usage():
-	print('Usage #1: python3 main.py filename')
-	print('Usage #2: python3 main.py -f filename -s filter_size -r filter_radius -b brigten_factor -c saturate_factor')
+	return args
 
 
 if __name__ == '__main__':
+	# Process arguments
 	args = processArg()
 
 	# Check if the specified file exists
