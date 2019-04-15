@@ -66,3 +66,4 @@ if __name__ == '__main__':
 	plt.imshow(out)
 	plt.title('Output')
 	plt.show()
+	
