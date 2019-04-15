@@ -50,12 +50,6 @@ if __name__ == '__main__':
 	if args.filter_radius == None:
 		args.filter_radius = 1 + img.shape[0] ** 2 * 0.0000001
 
-	# Print out the values of the parameters being used
-	print('filter_size =', args.filter_size)
-	print('filter_radius =', args.filter_radius)
-	print('brighten_factor =', args.brighten_factor)
-	print('saturate_factor =', args.saturate_factor)
-
 	# Take a focus point from the user
 	focus_point = get_point(img)
 
