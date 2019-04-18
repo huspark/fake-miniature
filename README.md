@@ -1,5 +1,7 @@
 ## Fake Miniature
-Fake-minature is a python program that manipulates various image properties in order to generate a miniature scene.
+Fake-minature is a python program that manipulates various image properties in order to generate a miniature scene.  
+<img src="/sample/stadium.png" width="420">
+<img src="/sample/stadium_out.jpg" width="420">
 
 ### How to Run
 * usage  
@@ -20,19 +22,6 @@ python3 main.py [-h] -f FILENAME [-s FILTER_SIZE] [-r FILTER_RADIUS] [-b BRIGHTE
    the constant for a brightening effect  
   * -c SATURATE_FACTOR, --saturate_factor SATURATE_FACTOR  
    the constant for a saturation effect  
-
-### Sample Output Images
-python3 main.py -f stadium.png -s 60 -r 1.003 -b 1.1 -c 1.5  
-<img src="/sample/stadium.png" width="300">
-<img src="/sample/stadium_out.jpg" width="300">
-
-python3 main.py -f pool.jpeg -s 60 -r 1.3 -b 1.1 -c 1.5  
-<img src="/sample/pool.jpeg" width="300">
-<img src="/sample/pool.jpg" width="300">
-
-python3 main.py -f river.jpg -s 60 -r 1.3 -b 1.1 -c 1.5  
-<img src="/sample/river.jpg" width="300">
-<img src="/sample/river_out.jpg" width="300">
 
 ### Citation
 http://graphics.berkeley.edu/papers/Held-UBA-2010-03/Held-UBA-2010-03.pdf
