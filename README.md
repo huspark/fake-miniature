@@ -1,5 +1,6 @@
 ## Fake Miniature
 Fake-minature is a python program that manipulates various image properties in order to generate a miniature scene.  
+
 <img src="/sample/stadium.png" width="420">
 <img src="/sample/stadium_out.jpg" width="420">
 
@@ -24,4 +25,5 @@ python3 main.py [-h] -f FILENAME [-s FILTER_SIZE] [-r FILTER_RADIUS] [-b BRIGHTE
    the constant for a saturation effect  
 
 ### Citation
+Using Blur to Affect Perceived Distance and Size,  
 http://graphics.berkeley.edu/papers/Held-UBA-2010-03/Held-UBA-2010-03.pdf
