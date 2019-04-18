@@ -2,14 +2,14 @@
 Fake-minature is a python program that manipulates various image properties in order to generate a miniature scene.
 
 ### How to Run
-usage: main.py [-h] -f FILENAME [-s FILTER_SIZE] [-r FILTER_RADIUS]
-               [-b BRIGHTEN_FACTOR] [-c SATURATE_FACTOR]
+####usage
+python3 main.py [-h] -f FILENAME [-s FILTER_SIZE] [-r FILTER_RADIUS] [-b BRIGHTEN_FACTOR] [-c SATURATE_FACTOR]
 
-required arguments:
+####required arguments:
   -f FILENAME, --filename FILENAME
                         the input file name
 
-optional arguments:
+####optional arguments:
   -h, --help            show this help message and exit
   -s FILTER_SIZE, --filter_size FILTER_SIZE
                         the vertical size of each Gaussian filter in pixels
@@ -22,7 +22,7 @@ optional arguments:
 
 ### Sample Output Images
 python3 main.py -f stadium.png -s 60 -r 1.003 -b 1.1 -c 1.5
-![alt text](/sample/stadium.png)
+<img src="/sample/stadium.png" width="48">
 ![alt text](/sample/stadium_out.png)
 
 python3 main.py -f pool.jpeg -s 60 -r 1.3 -b 1.1 -c 1.5
